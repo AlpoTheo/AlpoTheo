@@ -28,6 +28,8 @@
 
 ## Links / Linkler
 #
-![Java](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cleanpng.com%2Fpng-java-programmer-computer-programming-logo-2196137%2F&psig=AOvVaw0-9ai9c9G0_1-qUWxSfXWI&ust=1713776783591000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPDe3pf60oUDFQAAAAAdAAAAABAE)
-![Python](https://www.google.com/url?sa=i&url=https%3A%2F%2Fclipart-library.com%2Ffree%2Fpython-logo-transparent.html&psig=AOvVaw1mLW07tIABXlBjEaCAxUPk&ust=1713776807915000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOCftaP60oUDFQAAAAAdAAAAABAV)
+![Java](![image](https://github.com/AlpoTheo/AlpoTheo/assets/92213819/cac4ca43-e093-4d97-93c9-2f3d98fa9db7)
+)
+![Python](![image](https://github.com/AlpoTheo/AlpoTheo/assets/92213819/b7a6053e-0d6c-4d20-a0f5-8aef06f7ff35)
+)
 
