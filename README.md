@@ -19,9 +19,8 @@
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/>
 </p>
 
-<h3 align="left">
-
-## Links / Linkler
-Java ![Java](https://github.com/AlpoTheo/AlpoTheo/assets/92213819/cac4ca43-e093-4d97-93c9-2f3d98fa9db7)
-Python ![Python](https://github.com/AlpoTheo/AlpoTheo/assets/92213819/b7a6053e-0d6c-4d20-a0f5-8aef06f7ff35)
-
+## 📊 My GitHub Stats
+<p align="center">
+    <img src="https://github-readme-stats.vercel.app/api?username=AlpoTheo&show_icons=true&theme=radical" alt="GitHub Stats" height="180"/>
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AlpoTheo&layout=compact&theme=radical" alt="Top Languages" height="180"/>
+</p>
