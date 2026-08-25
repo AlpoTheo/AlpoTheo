@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" role="img" aria-labelledby="title desc">
+  <title id="title">Alp Doruk &#350;eng&#252;n profile header</title>
+  <desc id="desc">A black, game-interface inspired identity panel for a Computer Engineering student working across AI, data, and game development.</desc>
+  <rect width="900" height="430" fill="#080808"/>
+  <style>
+    .mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.sans{font-family:Inter,Segoe UI,Arial,sans-serif}
+    .line{stroke:#2A2A28;fill:none}.soft{fill:#92928C}.paper{fill:#F1EFE8}.accent{fill:#FF5A36}
+    .micro{font-size:11px;letter-spacing:1.6px}.small{font-size:14px}.label{font-size:13px;font-weight:700;letter-spacing:1.1px}
+  </style>
+  <path class="line" d="M30 27H870M30 401H870"/>
+  <g class="mono micro">
+    <text class="accent" x="34" y="54">PLAYER PROFILE / 01</text>
+    <text class="soft" x="866" y="54" text-anchor="end">ISTANBUL, TR / UTC+3</text>
+  </g>
+
+  <g transform="translate(34 95)">
+    <text class="sans paper" x="0" y="55" font-size="54" font-weight="760" letter-spacing="-2.2">ALP DORUK</text>
+    <text class="sans paper" x="0" y="111" font-size="54" font-weight="760" letter-spacing="-2.2">&#350;ENG&#220;N</text>
+    <rect x="1" y="137" width="53" height="3" class="accent"/>
+    <text class="mono soft small" x="0" y="173">COMPUTER ENGINEERING STUDENT</text>
+    <text class="mono soft small" x="0" y="198">BUILDING INTELLIGENT SYSTEMS + PLAYABLE WORLDS</text>
+  </g>
+
+  <g transform="translate(545 91)">
+    <rect width="321" height="225" rx="2" class="line"/>
+    <path class="line" d="M0 41H321M0 184H321M41 41V184M280 41V184"/>
+    <g class="mono micro">
+      <text class="soft" x="14" y="26">BUILD MAP</text><text class="accent" x="307" y="26" text-anchor="end">ONLINE</text>
+      <text class="soft" x="14" y="209">SELECT A ROUTE</text><text class="soft" x="307" y="209" text-anchor="end">03 AVAILABLE</text>
+    </g>
+    <g transform="translate(59 65)">
+      <path d="M19 49H83L115 16H176M83 49L115 83H176" fill="none" stroke="#2A2A28" stroke-width="2"/>
+      <circle cx="19" cy="49" r="9" fill="#FF5A36"/><circle cx="115" cy="16" r="6" fill="#080808" stroke="#92928C"/>
+      <circle cx="115" cy="83" r="6" fill="#080808" stroke="#92928C"/><circle cx="176" cy="16" r="6" fill="#F1EFE8"/>
+      <circle cx="176" cy="83" r="6" fill="#F1EFE8"/>
+      <g class="mono micro">
+        <text class="paper" x="0" y="76">CORE</text>
+        <text class="paper" x="190" y="20"><![CDATA[AI & DATA]]></text>
+        <text class="paper" x="190" y="87">GAME DEVELOPMENT</text>
+      </g>
+    </g>
+  </g>
+
+  <g class="mono label" transform="translate(34 357)">
+    <text class="accent" x="0" y="0">01</text><text class="paper" x="32" y="0"><![CDATA[AI & DATA]]></text>
+    <text class="accent" x="203" y="0">02</text><text class="paper" x="235" y="0">GAME DEVELOPMENT</text>
+    <text class="accent" x="480" y="0">03</text><text class="paper" x="512" y="0">SYSTEMS</text>
+  </g>
+  <g class="mono micro soft">
+    <text x="34" y="387">NOT A TIMELINE. A CURRENT BUILD.</text>
+    <text x="866" y="387" text-anchor="end">ALPOTHEO / GITHUB</text>
+  </g>
+</svg>

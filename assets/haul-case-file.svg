@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+  <title id="title">HAUL game project case file</title>
+  <desc id="desc">A completed four-player cooperative extraction horror game presented as a restrained game design dossier.</desc>
+  <rect width="900" height="420" fill="#080808"/>
+  <style>
+    .mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.sans{font-family:Inter,Segoe UI,Arial,sans-serif}
+    .line{stroke:#2A2A28;fill:none}.paper{fill:#F1EFE8}.soft{fill:#92928C}.accent{fill:#FF5A36}
+    .micro{font-size:11px;letter-spacing:1.5px}.body{font-size:14px}.label{font-size:12px;font-weight:700;letter-spacing:1px}
+  </style>
+  <path class="line" d="M30 27H870M30 393H870"/>
+  <text class="mono accent micro" x="34" y="55">CASE FILE / 001</text>
+  <text class="mono soft micro" x="866" y="55" text-anchor="end">ARCHIVE STATUS: COMPLETED</text>
+
+  <g transform="translate(34 86)">
+    <text class="sans paper" x="0" y="75" font-size="92" font-weight="780" letter-spacing="-5">HAUL</text>
+    <rect x="3" y="96" width="58" height="3" class="accent"/>
+    <text class="mono paper label" x="0" y="135">4-PLAYER CO-OP</text>
+    <text class="mono paper label" x="0" y="158">EXTRACTION HORROR</text>
+    <text class="mono soft body" x="0" y="197">A COMPLETED GAME PROJECT BUILT</text>
+    <text class="mono soft body" x="0" y="218">AROUND TEAMWORK, RISK, AND ESCAPE.</text>
+    <g transform="translate(0 253)">
+      <rect width="102" height="27" fill="#FF5A36"/><text class="mono" x="51" y="18" text-anchor="middle" font-size="11" font-weight="700" fill="#080808">COMPLETED</text>
+      <text class="mono soft micro" x="119" y="18">CENG 454 / GAME PROJECT</text>
+    </g>
+  </g>
+
+  <g transform="translate(391 86)">
+    <rect width="475" height="265" class="line"/>
+    <path class="line" d="M0 37H475M335 37V265"/>
+    <text class="mono soft micro" x="15" y="24">MISSION LOOP / SYSTEM VIEW</text>
+    <text class="mono accent micro" x="459" y="24" text-anchor="end">4 / 4 CONNECTED</text>
+    <g transform="translate(22 62)">
+      <rect x="0" y="0" width="276" height="162" fill="#0D0D0D" stroke="#2A2A28"/>
+      <path d="M19 126L70 83l47 16 48-61 44 20 48-25" stroke="#2A2A28" fill="none" stroke-dasharray="4 5"/>
+      <path d="M24 24h62v39H24zM111 109h52v33h-52zM190 67h60v49h-60z" fill="none" stroke="#92928C"/>
+      <path d="M52 63V83M137 99v10M220 116v18h-43" class="line"/>
+      <g>
+        <circle cx="42" cy="104" r="8" class="accent"/><circle cx="66" cy="116" r="8" fill="#F1EFE8"/><circle cx="89" cy="98" r="8" fill="#92928C"/><circle cx="111" cy="119" r="8" fill="#2A2A28" stroke="#92928C"/>
+        <text class="mono" x="42" y="108" text-anchor="middle" font-size="8" fill="#080808">1</text><text class="mono" x="66" y="120" text-anchor="middle" font-size="8" fill="#080808">2</text>
+        <text class="mono" x="89" y="102" text-anchor="middle" font-size="8" fill="#080808">3</text><text class="mono paper" x="111" y="123" text-anchor="middle" font-size="8">4</text>
+      </g>
+      <path d="M224 21h31v5h-31z" class="accent"/><text class="mono soft micro" x="19" y="151">ENTER → SCAVENGE → EXTRACT</text>
+    </g>
+    <g class="mono" transform="translate(354 61)">
+      <text class="accent micro" x="0" y="0">DESIGN PILLARS</text>
+      <text class="paper label" x="0" y="35">01 / TEAMWORK</text><path d="M0 47H92" class="line"/>
+      <text class="paper label" x="0" y="78">02 / TENSION</text><path d="M0 90H92" class="line"/>
+      <text class="paper label" x="0" y="121">03 / RISK</text><path d="M0 133H92" class="line"/>
+      <text class="paper label" x="0" y="164">04 / ESCAPE</text><path d="M0 176H92" class="line"/>
+    </g>
+  </g>
+
+  <g class="mono soft micro"><text x="34" y="382">ONE FINISHED BUILD SAYS MORE THAN A WALL OF PLACEHOLDERS.</text><text x="866" y="382" text-anchor="end">PROJECT RECORD / CLOSED</text></g>
+</svg>
