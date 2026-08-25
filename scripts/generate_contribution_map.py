@@ -96,8 +96,8 @@ def _height(count: int) -> int:
 
 def _terrain_cell(day: ContributionDay, index: int) -> str:
     week = index // 7
-    x = 236 + week * 10.2 - day.weekday * 5.4
-    y = 108 + week * 2.55 + day.weekday * 5.25
+    x = 340 + week * 8.5 - day.weekday * 4.5
+    y = 145 + week * 2.1 + day.weekday * 4.2
     height = _height(day.count)
     top_color = "#FF5A36" if day.count else "#2A2A28"
     side_color = "#A93421" if day.count else "#181817"
