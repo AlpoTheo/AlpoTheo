@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" role="img" aria-labelledby="title desc">
+  <title id="title">AlpoTheo contribution terrain</title>
+  <desc id="desc">Public GitHub activity from 2026-08-17 to 2026-08-19, rendered as an isometric terrain map.</desc>
+  <rect width="900" height="340" fill="#080808"/>
+  <style>
+    .mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+    .eyebrow { fill: #FF5A36; font-size: 12px; font-weight: 700; letter-spacing: 2px; }
+    .title { fill: #F1EFE8; font-size: 25px; font-weight: 700; letter-spacing: -.4px; }
+    .muted { fill: #92928C; font-size: 12px; }
+    .metric { fill: #F1EFE8; font-size: 18px; font-weight: 700; }
+    .empty { fill: #92928C; font: 11px ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: 1.2px; }
+  </style>
+  <path d="M30 26H870M30 314H870" stroke="#2A2A28"/>
+  <text class="mono eyebrow" x="34" y="59">ACTIVITY / 365D</text>
+  <text class="mono title" x="34" y="91">CONTRIBUTION TERRAIN</text>
+  <text class="mono muted" x="34" y="116">PUBLIC SIGNAL, RENDERED AS WORLD DATA.</text>
+  <g transform="translate(0 0)"><g data-terrain-cell="true"><title>2026-08-17: 0 contributions</title><polygon points="230.6,113.2 236.0,116.0 230.6,118.7 225.2,116.0" fill="#2A2A28" fill-opacity="1"/></g><g data-terrain-cell="true"><title>2026-08-18: 2 contributions</title><polygon points="219.8,116.2 225.2,118.9 225.2,123.9 219.8,121.2" fill="#6D281E" fill-opacity=".72"/><polygon points="230.6,116.2 225.2,118.9 225.2,123.9 230.6,121.2" fill="#A93421" fill-opacity=".72"/><polygon points="225.2,113.5 230.6,116.2 225.2,118.9 219.8,116.2" fill="#FF5A36" fill-opacity=".72"/></g><g data-terrain-cell="true"><title>2026-08-19: 7 contributions</title><polygon points="214.4,110.5 219.8,113.2 219.8,129.2 214.4,126.5" fill="#6D281E" fill-opacity="1"/><polygon points="225.2,110.5 219.8,113.2 219.8,129.2 225.2,126.5" fill="#A93421" fill-opacity="1"/><polygon points="219.8,107.8 225.2,110.5 219.8,113.2 214.4,110.5" fill="#FF5A36" fill-opacity="1"/></g></g>
+  
+  <g class="mono" transform="translate(34 166)">
+    <text class="metric" y="0">9</text><text class="muted" y="20">CONTRIBUTIONS</text>
+    <text class="metric" y="58">2</text><text class="muted" y="78">ACTIVE DAYS</text>
+    <text class="metric" y="116">7</text><text class="muted" y="136">PEAK DAY</text>
+  </g>
+  <text class="mono muted" x="866" y="306" text-anchor="end">2026-08-17 — 2026-08-19</text>
+</svg>
