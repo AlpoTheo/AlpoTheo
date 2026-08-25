@@ -1,4 +1,4 @@
-name: Update contribution terrain
+name: Build and deploy profile system
 
 on:
   workflow_dispatch:
@@ -9,31 +9,62 @@ on:
     paths:
       - scripts/generate_contribution_map.py
       - .github/workflows/update-profile-map.yml
+      - README.md
+      - site/index.html
+      - site/styles.css
+      - site/app.js
+      - site/core.js
+      - site/terrain.js
+      - site/data/profile.json
+      - package.json
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
-  group: profile-map
+  group: profile-system
   cancel-in-progress: true
 
 jobs:
-  update:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Generate contribution terrain
+      - name: Generate profile world data
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: python scripts/generate_contribution_map.py --username AlpoTheo --output assets/contribution-map.svg
-      - name: Commit changed terrain
+        run: >-
+          python scripts/generate_contribution_map.py
+          --username AlpoTheo
+          --output assets/contribution-map.svg
+          --json-output site/data/contributions.json
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload profile application
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+      - name: Commit changed public data
         run: |
-          if git diff --quiet -- assets/contribution-map.svg; then exit 0; fi
+          if git diff --quiet -- assets/contribution-map.svg site/data/contributions.json; then exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/contribution-map.svg
-          git commit -m "chore: update contribution terrain"
+          git add assets/contribution-map.svg site/data/contributions.json
+          git commit -m "chore: update public profile data"
           git push
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy profile application
+        id: deployment
+        uses: actions/deploy-pages@v4
