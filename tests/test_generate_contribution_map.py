@@ -6,8 +6,11 @@ from pathlib import Path
 
 from scripts.generate_contribution_map import (
     parse_calendar,
+    render_json,
     render_svg,
+    validate_json,
     validate_svg,
+    write_json_atomic,
     write_svg_atomic,
 )
 
@@ -58,6 +61,34 @@ class ContributionMapTests(unittest.TestCase):
                 write_svg_atomic("<not-svg />", output)
 
             self.assertEqual(output.read_text(encoding="utf-8"), "last-good")
+
+    def test_json_output_is_deterministic_and_has_public_summary(self):
+        days = parse_calendar(self.load("contributions.json"))
+
+        first = render_json(days)
+
+        self.assertEqual(first, render_json(days))
+        payload = json.loads(first)
+        self.assertEqual(
+            payload["summary"], {"total": 9, "activeDays": 2, "peak": 7}
+        )
+        self.assertEqual(
+            payload["days"][1],
+            {"date": "2026-08-18", "count": 2, "weekday": 2},
+        )
+        validate_json(first)
+
+    def test_invalid_json_does_not_replace_last_good_file(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "contributions.json"
+            output.write_text('{"last":"good"}', encoding="utf-8")
+
+            with self.assertRaises(ValueError):
+                write_json_atomic('{"days":[]}', output)
+
+            self.assertEqual(
+                output.read_text(encoding="utf-8"), '{"last":"good"}'
+            )
 
 
 if __name__ == "__main__":

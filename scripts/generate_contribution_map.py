@@ -169,6 +169,26 @@ def render_svg(days: Sequence[ContributionDay]) -> str:
 '''
 
 
+def render_json(days: Sequence[ContributionDay]) -> str:
+    """Create deterministic public contribution data for the Pages client."""
+    ordered = sorted(days, key=lambda day: day.date)
+    if not ordered:
+        raise ValueError("contribution calendar is empty")
+    payload = {
+        "range": {"start": ordered[0].date, "end": ordered[-1].date},
+        "summary": {
+            "total": sum(day.count for day in ordered),
+            "activeDays": sum(day.count > 0 for day in ordered),
+            "peak": max(day.count for day in ordered),
+        },
+        "days": [
+            {"date": day.date, "count": day.count, "weekday": day.weekday}
+            for day in ordered
+        ],
+    }
+    return json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n"
+
+
 def validate_svg(svg: str) -> None:
     """Reject malformed or unexpected output before replacing the last good map."""
     try:
@@ -179,6 +199,24 @@ def validate_svg(svg: str) -> None:
         raise ValueError("generated output is not the expected SVG canvas")
     if not any(node.attrib.get("data-terrain-cell") == "true" for node in root.iter()):
         raise ValueError("generated SVG has no terrain cells")
+
+
+def validate_json(text: str) -> None:
+    """Reject malformed or incomplete contribution data."""
+    try:
+        payload = json.loads(text)
+        days = payload["days"]
+        summary = payload["summary"]
+        date_range = payload["range"]
+    except (json.JSONDecodeError, KeyError, TypeError) as error:
+        raise ValueError("generated output is not expected contribution JSON") from error
+    if not days or set(summary) != {"total", "activeDays", "peak"}:
+        raise ValueError("generated contribution JSON is incomplete")
+    if set(date_range) != {"start", "end"}:
+        raise ValueError("generated contribution JSON has no valid range")
+    for day in days:
+        if set(day) != {"date", "count", "weekday"}:
+            raise ValueError("generated contribution JSON has an invalid day")
 
 
 def write_svg_atomic(svg: str, output_path: Path) -> None:
@@ -198,11 +236,29 @@ def write_svg_atomic(svg: str, output_path: Path) -> None:
             temporary.unlink()
 
 
+def write_json_atomic(text: str, output_path: Path) -> None:
+    """Validate and atomically replace the public contribution data."""
+    validate_json(text)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    temporary: Path | None = None
+    try:
+        with tempfile.NamedTemporaryFile(
+            "w", encoding="utf-8", newline="\n", delete=False, dir=output_path.parent
+        ) as stream:
+            stream.write(text)
+            temporary = Path(stream.name)
+        temporary.replace(output_path)
+    finally:
+        if temporary is not None and temporary.exists():
+            temporary.unlink()
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--username", required=True)
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--input-json", type=Path)
+    parser.add_argument("--json-output", type=Path)
     return parser
 
 
@@ -217,6 +273,8 @@ def main() -> None:
         payload = fetch_calendar(args.username, token)
     svg = render_svg(parse_calendar(payload))
     write_svg_atomic(svg, args.output)
+    if args.json_output:
+        write_json_atomic(render_json(parse_calendar(payload)), args.json_output)
 
 
 if __name__ == "__main__":
