@@ -1,0 +1,39 @@
+name: Update contribution terrain
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * 1"
+  push:
+    branches: [main]
+    paths:
+      - scripts/generate_contribution_map.py
+      - .github/workflows/update-profile-map.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-map
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generate contribution terrain
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/generate_contribution_map.py --username AlpoTheo --output assets/contribution-map.svg
+      - name: Commit changed terrain
+        run: |
+          if git diff --quiet -- assets/contribution-map.svg; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/contribution-map.svg
+          git commit -m "chore: update contribution terrain"
+          git push
