@@ -1,0 +1,40 @@
+{
+  "identity": {
+    "name": "ALP DORUK ŞENGÜN",
+    "primary": "COMPUTER ENGINEERING STUDENT",
+    "line": "I study systems from both sides: how data becomes intelligence, and how engineering becomes an experience someone can play."
+  },
+  "routes": {
+    "data": {
+      "title": "AI & DATA ENGINEERING",
+      "brief": "Turn raw signals into systems that can be inspected, tested, and used.",
+      "principles": ["STRUCTURE THE INPUT", "MAKE THE PIPELINE VISIBLE", "MEASURE BEFORE CLAIMING"]
+    },
+    "game": {
+      "title": "GAME DEVELOPMENT",
+      "brief": "Build rules, tools, and feedback loops that become a player experience.",
+      "principles": ["MECHANICS BEFORE DECORATION", "FEEDBACK IS PART OF THE RULE", "THE BUILD MUST BE PLAYABLE"]
+    },
+    "core": {
+      "title": "COMPUTER ENGINEERING",
+      "brief": "Understand the foundation below the abstraction and make it work under constraints.",
+      "principles": ["TRACE THE SYSTEM", "RESPECT THE CONSTRAINT", "TEST THE BOUNDARY"]
+    }
+  },
+  "haul": {
+    "title": "HAUL",
+    "status": "COMPLETED",
+    "classification": "4-PLAYER CO-OP / EXTRACTION HORROR / CENG 454",
+    "nodes": {
+      "teamwork": "Four players share a run; coordination is part of the core loop.",
+      "tension": "Incomplete information keeps the team reading the space and each other.",
+      "risk": "Every extra step creates a choice between a better haul and a safer exit.",
+      "extraction": "The run is only complete when the team turns what it found into an escape."
+    }
+  },
+  "contacts": {
+    "github": "https://github.com/AlpoTheo",
+    "linkedin": "https://www.linkedin.com/in/alpsengun/",
+    "email": "mailto:alpotheo@gmail.com"
+  }
+}
