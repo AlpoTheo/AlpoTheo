@@ -98,7 +98,7 @@ body[data-route="core"] .bus--a { background: var(--signal); }
 body[data-route="data"] .process-glyph { transform: rotate(90deg) scale(.78); }
 body[data-route="game"] .process-glyph { transform: rotate(135deg) scale(1.08); }
 .route-readout { align-self: end; padding: 30px; }
-.route-readout h2 { max-width: 420px; margin: 10px 0 14px; font-family: var(--sans); font-size: clamp(32px, 4vw, 64px); line-height: .88; letter-spacing: -.055em; }
+.route-readout h2 { max-width: 420px; margin: 10px 0 14px; font-family: var(--sans); font-size: clamp(30px, 3.2vw, 52px); line-height: .88; letter-spacing: -.055em; overflow-wrap: anywhere; }
 .route-readout > p:not(.eyebrow) { max-width: 410px; color: var(--muted); font-family: var(--sans); font-size: 16px; line-height: 1.45; }
 .route-readout__prompt { margin-top: 26px; padding-top: 12px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 8px; letter-spacing: .13em; }
 
@@ -177,23 +177,28 @@ body[data-route="game"] .process-glyph { transform: rotate(135deg) scale(1.08); 
 }
 
 @media (max-width: 720px) {
-  .shell { display: block; }
+  html, body, .shell, .workbench, .stage, .mode-panel { width: 100%; max-width: 100%; min-width: 0; }
+  .shell { display: block; overflow-x: hidden; }
   .masthead { grid-template-columns: 1fr auto; min-height: 0; }
   .brand { padding: 15px; border-right: 0; }.brand__meta { display: none; }
   .identity { grid-column: 1 / -1; grid-row: 2; padding: 20px 15px 24px; border-top: 1px solid var(--rule); }
   .identity h1 { font-size: clamp(42px, 13vw, 70px); }
   .masthead__status { grid-column: 2; grid-row: 1; display: block; padding: 15px; border-left: 1px solid var(--rule); }
   .masthead__status > span { display: none; }.key-control { min-height: 44px; }
-  .workbench { display: flex; flex-direction: column; }
-  .route-rail { order: 0; display: grid; grid-template-columns: repeat(3, 1fr); border-right: 0; border-bottom: 1px solid var(--rule); }
+  .workbench { display: flex; flex-direction: column; overflow-x: hidden; }
+  .route-rail { order: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto auto; width: 100%; max-width: 100%; border-right: 0; border-bottom: 1px solid var(--rule); overflow: hidden; }
   .rail-label { grid-column: 1 / -1; }.rail-help { display: none; }
-  .route { min-height: 108px; padding: 13px 10px; border-right: 1px solid var(--rule); border-bottom: 0; }
-  .route:last-of-type { border-right: 0; }.route::after, .route__socket, .route small { display: none; }.route strong { font-size: 12px; }
+  .route { min-width: 0; min-height: 108px; padding: 13px 10px; border-right: 1px solid var(--rule); border-bottom: 0; overflow: hidden; }
+  .route:last-of-type { border-right: 0; }.route::after, .route__socket, .route small { display: none; }.route strong { font-size: 12px; overflow-wrap: anywhere; }
   .route.is-active::before { left: 10px; right: 10px; top: auto; bottom: 0; width: auto; height: 3px; }
-  .stage { order: 1; min-height: 520px; border-bottom: 1px solid var(--rule); }
-  .stage__head { padding-left: 12px; }.mode-switch button { min-width: 60px; min-height: 44px; }
+  .stage { order: 1; min-height: 520px; border-bottom: 1px solid var(--rule); overflow-x: hidden; }
+  .stage__head { display: grid; grid-template-columns: 1fr; padding-left: 0; }
+  .stage__head > span { padding: 11px 12px; }
+  .mode-switch { width: 100%; border-top: 1px solid var(--rule); }
+  .mode-switch button { flex: 1; min-width: 0; min-height: 44px; border-left: 0; border-right: 1px solid var(--rule); }
+  .mode-switch button:last-child { border-right: 0; }
   .route-mode { display: flex; flex-direction: column; }.signal-field { min-height: 250px; }.route-readout { padding: 24px 16px 30px; }
-  .route-readout h2 { font-size: 43px; }.route-readout > p:not(.eyebrow) { font-size: 15px; }
+  .route-readout { width: 100%; min-width: 0; }.route-readout h2 { max-width: 100%; font-size: clamp(30px, 12vw, 43px); overflow-wrap: anywhere; word-break: break-word; }.route-readout > p:not(.eyebrow) { font-size: 15px; }
   .haul-mode { grid-template-columns: 1fr; }.haul-map { min-height: 340px; border-right: 0; border-bottom: 1px solid var(--rule); }.haul-readout { padding: 28px 16px; }
   .terrain-mode, .terrain-mode canvas { min-height: 500px; }.terrain-hud { left: 12px; top: 12px; }.terrain-controls { right: 12px; bottom: 12px; }.terrain-controls button { min-height: 44px; }
   .telemetry { order: 2; grid-template-columns: 1fr 1fr; border-left: 0; }.telemetry__head { grid-column: 1 / -1; }.telemetry section { padding: 15px; }.progress-block { grid-column: 1 / -1; }
