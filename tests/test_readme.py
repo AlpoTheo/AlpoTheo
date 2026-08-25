@@ -10,12 +10,7 @@ class ReadmeTests(unittest.TestCase):
         self.text = (ROOT / "README.md").read_text(encoding="utf-8")
 
     def test_owned_assets_and_contacts_are_present(self):
-        for asset in (
-            "profile-header.svg",
-            "focus-routes.svg",
-            "haul-case-file.svg",
-            "contribution-map.svg",
-        ):
+        for asset in ("profile-header.svg", "contribution-map.svg"):
             self.assertIn(f"./assets/{asset}", self.text)
         self.assertIn("https://github.com/AlpoTheo", self.text)
         self.assertIn("https://www.linkedin.com/in/alpsengun/", self.text)
@@ -41,6 +36,22 @@ class ReadmeTests(unittest.TestCase):
 
     def test_pins_handoff_is_explicit(self):
         self.assertIn("Selected repositories continue below", self.text)
+
+    def test_readme_is_a_native_launch_console(self):
+        self.assertIn("ENTER THE SYSTEM", self.text)
+        self.assertIn("https://alpotheo.github.io/AlpoTheo/", self.text)
+        self.assertGreaterEqual(self.text.count("<details>"), 4)
+        for label in (
+            "AI &amp; Data Engineering",
+            "Game Development",
+            "Computer Engineering",
+            "HAUL",
+        ):
+            self.assertIn(label, self.text)
+
+    def test_passive_panels_are_not_presented_as_controls(self):
+        self.assertNotIn("./assets/focus-routes.svg", self.text)
+        self.assertNotIn("./assets/haul-case-file.svg", self.text)
 
 
 if __name__ == "__main__":
